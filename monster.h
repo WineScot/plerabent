@@ -7,7 +7,7 @@ class Monster
     public:
         Monster();
         virtual ~Monster();
-        int attack, defence;
+        int hp, attack, defence;
         string name;
     private:
 };
