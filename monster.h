@@ -3,12 +3,12 @@
 
 class Monster
 {
-public:
+private:
     Monster();
     virtual ~Monster();
     int hp, attack, defence;
     string name;
-private:
+public:
     friend void init();
 };
 
