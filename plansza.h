@@ -1,11 +1,12 @@
 #include <vector>
-#include "pole.h"
+#include "event.h"
 
 class Plansza
 {
 private:
-    vector <Pole> pola;
+    vector <Event> pola;
     int playerPos;
+    void wyswietl();
 
 public:
     Plansza();
