@@ -31,7 +31,7 @@ void generateMap( int x, int y )
     {
         int p = edges[i].first;
         int q = edges[i].second;
-        if( x+p < N && x+p >= 0 && y+q < N && y+q >= 0 && !odw[x+p][y+q] )
+        if( x+p < N && x+p > 0 && y+q < N && y+q > 0 && !odw[x+p][y+q] )
         {
             if(!done)
             path.push( make_pair( x+p, y+q ) );
@@ -41,7 +41,7 @@ void generateMap( int x, int y )
             {
                 int a = edges[k].first;
                 int b = edges[k].second;
-                if( !odw[x+a][y+b] )
+                if( !odw[x+a][y+b] && a != p && b != q )
                 {
                     odw[x+a][y+b] = true;
                     f.push_back( make_pair(x+a, y+b) );
@@ -66,21 +66,21 @@ void generateMap( int x, int y )
 Plansza::Plansza()
 {
     // mapa init
-    for(int i=0; i<N; i++)
-        for(int j=0; j<N; j++)
-            mapa[j][i] = '.';
+    for(int i=0; i<N+1; i++)
+        for(int j=0; j<N+1; j++)
+            mapa[j][i] = ' ';
 
     srand(time(NULL));
-    generateMap(0,0 );
+    generateMap(1,1 );
 
     while(!path.empty())
     {
         int a = path.top().first;
         int b = path.top().second;
-        mapa[a][b] = '#';
+        mapa[a][b] = '.';
         path.pop();
     }
-    mapa[0][0] = '#';
+    mapa[1][1] = '.';
 
     // for(int i=0; i<N; i++)
     // {
@@ -91,9 +91,9 @@ Plansza::Plansza()
 
 void Plansza::wyswietl()
 {
-    for(int i=0; i<N; i++)
+    for(int i=0; i<N+1; i++)
     {
-        for(int j=0; j<N; j++)
+        for(int j=0; j<N+1; j++)
             cout<<mapa[j][i];
         cout<<endl;
     }
