@@ -1,15 +1,21 @@
-#ifndef MONSTER_H
-#define MONSTER_H
+#include <string>
+
+struct m
+{
+    std::string name;
+    int hp,attack,defence;
+};
 
 class Monster
 {
 private:
-    Monster();
-    virtual ~Monster();
     int hp, attack, defence;
-    string name;
+    std::string name;
+    static int Num_monst;
+    static m monsters[1000000];
 public:
-    friend void init();
+    friend void main_init(std::string);
+    void test();
+    Monster();
 };
 
-#endif // MONSTER_H
