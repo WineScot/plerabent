@@ -9,7 +9,7 @@ class Plansza
 private:
     vector <Event> pola;
     int playerPos;
-    char mapa[50][50] = {{'.'}};
+    char mapa[50][50];
 
 public:
     Plansza();
