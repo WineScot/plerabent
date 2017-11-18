@@ -1,3 +1,5 @@
+#ifndef MONSTER_H
+#define MONSTER_H
 #include <string>
 
 struct m
@@ -19,3 +21,4 @@ public:
     Monster();
 };
 
+#endif

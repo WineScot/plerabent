@@ -2,8 +2,9 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-
 #include "monster.h"
+#include "event.h"
+#include "player.h"
 
 void main_init(std::string path)
 {
@@ -27,10 +28,19 @@ void main_init(std::string path)
     Monster::Num_monst=a;
 }
 
+void Event_init(std:: string path)
+{
+    std:: string s;
+    std:: fstream plik( path.c_str(), std::ios::in );
+    std:: string *tab=Event::Event_plots;
+    while( getline( plik, s ) )
+    {
+        *tab = s;
+        tab++;
+    }
+}
+
 int main()
 {
-    std::string a="Monsters.txt";
-    main_init(a);
-    Monster mo;
-    mo.test();
+    return 0;
 }
