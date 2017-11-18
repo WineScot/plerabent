@@ -2,12 +2,10 @@
 #include <vector>
 #include "event.h"
 
-using namespace std;
-
 class Plansza
 {
 private:
-    vector <Event> pola;
+    std::vector <Event> pola;
     int playerPos;
     char mapa[50][50];
 

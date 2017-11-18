@@ -2,23 +2,18 @@
 #include <stack>
 #include "plansza.h"
 
-using namespace std;
-
 const int N = 15; // rozmiar mapy
 bool odw[N][N];
-stack < pair<int,int> > path;
+std::stack < std::pair<int,int> > path;
 bool done;
 
 void generateMap( int x, int y )
 {
     if(x == N-1 && y == N-1)
-    {
-        cout<<"Wypisujemy ścieżkę"<<endl;
         done = true;
-    }
 
     odw[x][y] = true;
-    pair<int,int> edges[4] = { {-1,0}, {1,0}, {0,1}, {0,-1} };
+    std::pair<int,int> edges[4] = { {-1,0}, {1,0}, {0,1}, {0,-1} };
     // losowanie kolejności odwiedzanych wieżhołków
     for(int i=0; i<8; i++)
     {
@@ -34,17 +29,17 @@ void generateMap( int x, int y )
         if( x+p < N && x+p > 0 && y+q < N && y+q > 0 && !odw[x+p][y+q] )
         {
             if(!done)
-            path.push( make_pair( x+p, y+q ) );
+            path.push( std::make_pair( x+p, y+q ) );
 
-            vector < pair<int,int> > f;
+            std::vector < std::pair<int,int> > f;
             for(int k=0; k<4; k++)
             {
                 int a = edges[k].first;
                 int b = edges[k].second;
-                if( !odw[x+a][y+b] && a != p && b != q )
+                if( !odw[x+a][y+b] )
                 {
                     odw[x+a][y+b] = true;
-                    f.push_back( make_pair(x+a, y+b) );
+                    f.push_back( std::make_pair(x+a, y+b) );
                 }
             }
 
@@ -54,6 +49,7 @@ void generateMap( int x, int y )
             {
                 int a = f[k].first;
                 int b = f[k].second;
+                if( !(a == x+p && b == q+b) )
                 odw[a][b] = false;
             }
 
@@ -77,16 +73,10 @@ Plansza::Plansza()
     {
         int a = path.top().first;
         int b = path.top().second;
-        mapa[a][b] = '.';
+        mapa[a][b] = '#';
         path.pop();
     }
-    mapa[1][1] = '.';
-
-    // for(int i=0; i<N; i++)
-    // {
-    //     pola.push_back( Event(i,0,i) );
-    //     mapa[i][0] = '#';
-    // }
+    mapa[1][1] = '#';
 }
 
 void Plansza::wyswietl()
@@ -94,7 +84,7 @@ void Plansza::wyswietl()
     for(int i=0; i<N+1; i++)
     {
         for(int j=0; j<N+1; j++)
-            cout<<mapa[j][i];
-        cout<<endl;
+            std::cout<<mapa[j][i];
+        std::cout<<std::endl;
     }
 }
