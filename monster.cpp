@@ -20,6 +20,21 @@ void Monster::test()
     }
 }
 
+int Monster::getHp()
+{
+    return hp;
+}
+
+int Monster::getAtt()
+{
+    return attack;
+}
+
+int Monster::getDef()
+{
+    return defence;
+}
+
 Monster::Monster()
 {
     /*srand(time(0));

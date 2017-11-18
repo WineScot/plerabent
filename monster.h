@@ -1,6 +1,7 @@
 #ifndef MONSTER_H
 #define MONSTER_H
 #include <string>
+#include "player.h"
 
 struct m
 {
@@ -15,8 +16,12 @@ private:
     std::string name;
     static int Num_monst;
     static m monsters[1000000];
+
 public:
     friend void main_init(std::string);
+    int getHp();
+    int getAtt();
+    int getDef();
     void test();
     Monster();
 };

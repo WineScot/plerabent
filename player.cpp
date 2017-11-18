@@ -1,47 +1,50 @@
 #include "player.h"
 #include <cstdlib>
+#include "monster.h"
+#include "event.h"
 
-using namespace std;
-
-Player::player(int base_hp, int base_attack, int base_defence)
+Player::Player(int base_hp, int base_attack, int base_defence)
 {
-    this->base_hp=base_hp;
+    base_hp=base_hp;
     hp=base_hp;
-    this->base_attack=base_attack;
+    base_attack=base_attack;
     attack=base_attack;
-    this->base_defence=base_defence;
+    base_defence=base_defence;
     defence=base_defence;
     position=1;
 }
 
-void Player::battle(Monster enemy)
+void Player::battle(Monster *e)
 {
+    int monsterHp = e->getHp();
+    int monsterAtt = e->getAtt();
+    int monsterDef = e->getDef();
     bool tour=rand()%2; //losowanie tury
-    while(hp>0 && enemy.hp>0)
+    while(hp>0 && monsterHp>0)
     {
-        int base=rand()%6+1; //rzut kostk¹
+        int base=rand()%6+1; //rzut kostkÄ…
         if(tour)
         {
-            base+=attack-enemy.defence;
-            base=min(base,1);
-            enemy.hp-=base;
+            base+=attack-monsterAtt;
+            base=std::min(base,1);
+            monsterHp-=base;
         }
         else
         {
-            base+=enemy.attack-defence;
-            base=min(base,1);
+            base+=monsterAtt-defence;
+            base=std::min(base,1);
             hp-=base;
         }
         tour=!tour;
     }
 }
 
-void Player::c_event(Event e)
+void Player::c_event(Event *e)
 {
-    battle(e.m); //walka z potworem
-    hp+=e.hp;
-    attack+=e.attack;
-    defence+=e.defence;
+    battle(e->getM()); //walka z potworem
+    hp+=e->getHp();
+    attack+=e->getAtt();
+    defence+=e->getDef();
 }
 
 void Player::p_move()

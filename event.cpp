@@ -1,8 +1,8 @@
 #include "event.h"
+#include "monster.h"
 
-using namespace std;
+std::string Event::Event_plots[];
 
-string Event::Event_plots[];
 
 Event::Event( int a, int b, int i )
 {
@@ -10,7 +10,27 @@ Event::Event( int a, int b, int i )
     y = b;
 }
 
+int Event::getHp()
+{
+    return hp;
+}
+
+int Event::getAtt()
+{
+    return attack;
+}
+
+int Event::getDef()
+{
+    return defence;
+}
+
+Monster* Event::getM()
+{
+    return &m;
+}
+
 void Event::wyswietl() //tymczasowe
 {
-    cout<<plot<<endl;
+    std::cout<<plot<<std::endl;
 }
