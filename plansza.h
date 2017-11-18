@@ -14,4 +14,5 @@ private:
 public:
     Plansza();
     void wyswietl();
+    friend void generateMap(int,int,Plansza*);
 };

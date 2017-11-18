@@ -1,8 +1,11 @@
-#include <iostream>
-#include <fstream>
 #include "monster.h"
 
 using namespace std;
+
+Monster::Monster()
+{
+
+}
 
 void init( string path, string *tab )
 {
