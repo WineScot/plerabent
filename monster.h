@@ -4,12 +4,11 @@
 #include <iostream>
 #include <fstream>
 
-using namespace std;
 
 class Monster
 {
     int hp, attack, defence;
-    string name;
+    std::string name;
 public:
     Monster();
     //virtual ~Monster();

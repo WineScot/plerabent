@@ -1,16 +1,16 @@
 #include "monster.h"
 
-using namespace std;
 
 Monster::Monster()
 {
 
+
 }
 
-void init( string path, string *tab )
+void init( std::string path, std::string *tab )
 {
-    string s;
-    fstream plik( path.c_str(), ios::in );
+    std::string s;
+    std::fstream plik( path.c_str(), std::ios::in );
     while( getline( plik, s ) )
     {
         *tab = s;
