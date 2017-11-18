@@ -1,6 +1,8 @@
 #include "player.h"
 #include <cstdlib>
 
+using namespace std;
+
 Player::player(int base_hp, int base_attack, int base_defence)
 {
     this->base_hp=base_hp;
@@ -12,7 +14,7 @@ Player::player(int base_hp, int base_attack, int base_defence)
     position=1;
 }
 
-Player::battle(Monster enemy)
+void Player::battle(Monster enemy)
 {
     bool tour=rand()%2; //losowanie tury
     while(hp>0 && enemy.hp>0)
@@ -34,7 +36,7 @@ Player::battle(Monster enemy)
     }
 }
 
-Player::c_event(Event e)
+void Player::c_event(Event e)
 {
     battle(e.m); //walka z potworem
     hp+=e.hp;
@@ -42,7 +44,7 @@ Player::c_event(Event e)
     defence+=e.defence;
 }
 
-Player::p_move()
+void Player::p_move()
 {
     int mov=rand()%6+1;
     position+=mov; //tymczasowe

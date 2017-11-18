@@ -1,13 +1,12 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#inlude "event.h"
+#include "event.h"
 #include "monster.h"
 
 class Player
 {
     public:
-        player(int, int, int);
-        virtual ~player();
+        Player(int, int, int);
         void p_move();
         void battle(Monster);
         void c_event(Event);
