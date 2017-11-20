@@ -1,9 +1,11 @@
 #include "player.h"
 #include <cstdlib>
+#include <windows.h>
 #include "monster.h"
 #include "event.h"
+#include "plansza.h"
 
-Player::Player(int base_hp, int base_attack, int base_defence)
+Player::Player(int base_hp, int base_attack, int base_defence, Plansza* p)
 {
     base_hp=base_hp;
     hp=base_hp;
@@ -12,6 +14,7 @@ Player::Player(int base_hp, int base_attack, int base_defence)
     base_defence=base_defence;
     defence=base_defence;
     position=1;
+    this->p=p;
 }
 
 void Player::battle(Monster *e)
@@ -50,5 +53,14 @@ void Player::c_event(Event *e)
 void Player::p_move()
 {
     int mov=rand()%6+1;
+    std::cout<<"Ruch: "<<mov<<std::endl;
     position+=mov; //tymczasowe
+    for(int i=0; i<mov; i++)
+    {
+        p->addPos(1);
+        Sleep(500);
+        system("cls");
+        p->wyswietl();
+    }
+
 }

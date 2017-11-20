@@ -7,19 +7,22 @@
 class Event
 {
 private:
+    static int Num_event;
     static std::string Event_plots[100];
     std::string plot;
     Monster m;
-    int x, y;
     int hp, attack, defence; // bonusy
+    int x, y; //pozycje
 public:
-    Event(int,int,int); // ( x, y, indesk pola )
+    Event(int,int,int); // ( x, y, numer pola )
     friend void Event_init(std::string);
     void wyswietl();
     Monster* getM();
     int getHp();
     int getAtt();
     int getDef();
+    int X();
+    int Y();
 };
 
 

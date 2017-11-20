@@ -3,14 +3,16 @@
 
 class Monster;
 class Event;
+class Plansza;
 
 class Player
 {
     public:
-        Player(int, int, int);
+        Player(int, int, int, Plansza*);
         void p_move();
         void battle(Monster*);
         void c_event(Event*);
+        Plansza *p;
 
     private:
         int base_hp, base_attack, base_defence; //Bazowe statystyki

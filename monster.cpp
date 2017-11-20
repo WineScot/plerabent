@@ -35,12 +35,17 @@ int Monster::getDef()
     return defence;
 }
 
+std::string Monster::getName()
+{
+    return name;
+}
+
 Monster::Monster()
 {
-    /*srand(time(0));
+    srand(time(0));
     int x=(rand()%Num_monst)+1;
     name=monsters[x].name;
     hp=monsters[x].hp;
     attack=monsters[x].attack;
-    defence=monsters[x].defence;*/
+    defence=monsters[x].defence;
 }
