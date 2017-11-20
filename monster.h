@@ -19,6 +19,7 @@ private:
 
 public:
     friend void main_init(std::string);
+    std::string getName();
     int getHp();
     int getAtt();
     int getDef();

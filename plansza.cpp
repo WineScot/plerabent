@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <stack>
+#include <ctime>
 #include "plansza.h"
 
 const int N = 15; // rozmiar mapy
@@ -61,22 +62,26 @@ void generateMap( int x, int y )
 
 Plansza::Plansza()
 {
+    path.push( std::make_pair(1,1) );
+    playerPos=0;
     // mapa init
     for(int i=0; i<N+1; i++)
         for(int j=0; j<N+1; j++)
             mapa[j][i] = ' ';
 
     srand(time(NULL));
-    generateMap(1,1 );
+    generateMap(1,1);
 
     while(!path.empty())
     {
         int a = path.top().first;
         int b = path.top().second;
+        pola[ path.size()-1 ] =new Event( a, b, (int)(path.size()-1) );
         mapa[a][b] = '#';
         path.pop();
     }
     mapa[1][1] = '#';
+    mapa[ pola[playerPos]->X() ][ pola[playerPos]->Y() ] = 'P';
 }
 
 void Plansza::wyswietl()
@@ -87,4 +92,11 @@ void Plansza::wyswietl()
             std::cout<<mapa[j][i];
         std::cout<<std::endl;
     }
+}
+
+void Plansza::addPos(int a)
+{
+    mapa[ pola[playerPos]->X() ][ pola[playerPos]->Y() ] = '#';
+    playerPos += a;
+    mapa[ pola[playerPos]->X() ][ pola[playerPos]->Y() ] = 'P';
 }

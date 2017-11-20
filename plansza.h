@@ -5,7 +5,7 @@
 class Plansza
 {
 private:
-    std::vector <Event> pola;
+    Event *pola[500];
     int playerPos;
     char mapa[50][50];
 
@@ -13,4 +13,5 @@ public:
     Plansza();
     void wyswietl();
     friend void generateMap(int,int,Plansza*);
+    void addPos(int);
 };
