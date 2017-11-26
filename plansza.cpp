@@ -3,7 +3,7 @@
 #include <ctime>
 #include "plansza.h"
 
-const int N = 15; // rozmiar mapy
+const int N = 20; // rozmiar mapy
 bool odw[N][N];
 std::stack < std::pair<int,int> > path;
 bool done;
@@ -94,9 +94,32 @@ void Plansza::wyswietl()
     }
 }
 
-void Plansza::addPos(int a)
+void Plansza::addPos()
 {
     mapa[ pola[playerPos]->X() ][ pola[playerPos]->Y() ] = '#';
-    playerPos += a;
+
+    playerPos += 1;
+
     mapa[ pola[playerPos]->X() ][ pola[playerPos]->Y() ] = 'P';
+    if (pola[playerPos]->X()== N-1 && pola[playerPos]->Y() == N-1)
+    {
+        czy=true;
+        return;
+    }
+}
+bool Plansza::Czy()
+{
+    return czy;
+}
+void Plansza::zmien()
+{
+    czy=false;
+}
+void Plansza::action(Player* player)
+{
+    std::cout<<pola[playerPos]->GetPlot()<<"\n";
+    std::cout<<"Twoj przeciwnik: "<<pola[playerPos]->getM()->getName()<<"\n";
+    player->battle(pola[playerPos]->getM());
+
+
 }

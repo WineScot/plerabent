@@ -12,12 +12,14 @@ class Player
         void p_move();
         void battle(Monster*);
         void c_event(Event*);
+        bool Koniec();
         Plansza *p;
 
     private:
         int base_hp, base_attack, base_defence; //Bazowe statystyki
         int hp, attack, defence; //statystyki
         int position; //Pozycja gracza
+        bool koniec=false;
 };
 
 #endif // PLAYER_H

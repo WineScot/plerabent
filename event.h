@@ -21,6 +21,7 @@ public:
     int getHp();
     int getAtt();
     int getDef();
+    std::string GetPlot();
     int X();
     int Y();
 };

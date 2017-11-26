@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1511711538 source:c:\users\damia\onedrive\dokumenty\projekty\plerabent-master\plerabent-master\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<windows.h>
+	"monster.h"
+	"event.h"
+	"player.h"
+	"plansza.h"
+
+1511561896 c:\users\damia\onedrive\dokumenty\projekty\plerabent-master\plerabent-master\monster.h
+	<string>
+	"player.h"
+
+1511706302 c:\users\damia\onedrive\dokumenty\projekty\plerabent-master\plerabent-master\player.h
+
+1511710813 c:\users\damia\onedrive\dokumenty\projekty\plerabent-master\plerabent-master\event.h
+	<iostream>
+	<string>
+	"monster.h"
+
+1511711886 c:\users\damia\onedrive\dokumenty\projekty\plerabent-master\plerabent-master\plansza.h
+	<iostream>
+	<vector>
+	"event.h"
+
+1511710792 source:c:\users\damia\onedrive\dokumenty\projekty\plerabent-master\plerabent-master\event.cpp
+	"event.h"
+	"monster.h"
+	<ctime>
+	<cstdlib>
+
+1511561896 source:c:\users\damia\onedrive\dokumenty\projekty\plerabent-master\plerabent-master\monster.cpp
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<string>
+	<ctime>
+	"monster.h"
+
+1511710378 source:c:\users\damia\onedrive\dokumenty\projekty\plerabent-master\plerabent-master\player.cpp
+	"player.h"
+	<cstdlib>
+	<windows.h>
+	"monster.h"
+	"event.h"
+	"plansza.h"
+
+1511711886 source:c:\users\damia\onedrive\dokumenty\projekty\plerabent-master\plerabent-master\plansza.cpp
+	<cstdlib>
+	<stack>
+	<ctime>
+	"plansza.h"
+
