@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
+#include <windows.h>
 #include "monster.h"
 #include "event.h"
 #include "player.h"
@@ -54,13 +55,17 @@ int main()
 {
     init();
     Plansza mapa;
-    Player player(1,1,1,&mapa);
+    Player p(1,1,1,&mapa);
+    Player* player=&p;
     mapa.wyswietl();
-    for(;;)
+    while(!player->Koniec())
     {
         system("cls");
         mapa.wyswietl();
-        player.p_move();
+        Sleep(500);
+        player->p_move();
+        system("pause");
+        mapa.action(player);
         system("pause");
     }
     return 0;

@@ -49,7 +49,10 @@ void Player::c_event(Event *e)
     attack+=e->getAtt();
     defence+=e->getDef();
 }
-
+bool Player::Koniec()
+{
+    return koniec;
+}
 void Player::p_move()
 {
     int mov=rand()%6+1;
@@ -57,10 +60,16 @@ void Player::p_move()
     position+=mov; //tymczasowe
     for(int i=0; i<mov; i++)
     {
-        p->addPos(1);
+        p->addPos();
         Sleep(500);
         system("cls");
         p->wyswietl();
+        if(p->Czy()==true)
+        {
+            koniec=true;
+            std::cout<<"Gracz dotarl do mety\n";
+            break;
+        }
     }
 
 }

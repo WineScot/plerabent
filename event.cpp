@@ -26,7 +26,10 @@ int Event::getAtt()
 {
     return attack;
 }
-
+std::string Event::GetPlot()
+{
+    return plot;
+}
 int Event::getDef()
 {
     return defence;
