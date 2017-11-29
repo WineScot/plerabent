@@ -17,6 +17,7 @@ public:
     Event(int,int,int); // ( x, y, numer pola )
     friend void Event_init(std::string);
     void wyswietl();
+    void wyswietl_bonusy();
     Monster* getM();
     int getHp();
     int getAtt();

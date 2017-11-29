@@ -32,7 +32,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="event.cpp" />
+		<Unit filename="event.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="monster.cpp" />
+		<Unit filename="monster.h" />
+		<Unit filename="plansza.cpp" />
+		<Unit filename="plansza.h" />
+		<Unit filename="player.cpp" />
+		<Unit filename="player.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

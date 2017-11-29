@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <stack>
 #include <ctime>
+#include <windows.h>
 #include "plansza.h"
 
 const int N = 20; // rozmiar mapy
@@ -118,8 +119,8 @@ void Plansza::zmien()
 void Plansza::action(Player* player)
 {
     std::cout<<pola[playerPos]->GetPlot()<<"\n";
-    std::cout<<"Twoj przeciwnik: "<<pola[playerPos]->getM()->getName()<<"\n";
+    pola[playerPos]->wyswietl();
+    Sleep(2000);
     player->battle(pola[playerPos]->getM());
-
-
+    pola[playerPos]->wyswietl_bonusy();
 }
