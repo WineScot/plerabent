@@ -5,7 +5,7 @@
 #include "event.h"
 #include "plansza.h"
 
-Player::Player(int base_hp, int base_attack, int base_defence, Plansza* p)
+/*Player::Player(int base_hp, int base_attack, int base_defence, Plansza* p)
 {
     base_hp=base_hp;
     hp=base_hp;
@@ -15,7 +15,7 @@ Player::Player(int base_hp, int base_attack, int base_defence, Plansza* p)
     defence=base_defence;
     position=1;
     this->p=p;
-}
+}*/
 
 void Player::battle(Monster *e)
 {
