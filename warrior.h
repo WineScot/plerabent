@@ -1,14 +1,15 @@
 #ifndef WARRIOR_H
 #define WARRIOR_H
 
-#include <Player.h>
+#include "player.h"
 
 
 class Warrior : public Player
 {
-    Warrior(Plansza* p);
 private:
     int critical;//szansa na trafienie krytyczne
+public:
+    Warrior(Plansza *);
 };
 
 #endif // WARRIOR_H

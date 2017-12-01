@@ -121,5 +121,4 @@ void Plansza::action(Player* player)
     std::cout<<"Twoj przeciwnik: "<<pola[playerPos]->getM()->getName()<<"\n";
     player->battle(pola[playerPos]->getM());
 
-
 }

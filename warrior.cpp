@@ -1,10 +1,10 @@
-#include "Warrior.h"
+#include "warrior.h"
 
+class Plansza;
 Warrior::Warrior(Plansza* p)
+    :Player(p)
 {
-    position=1;
     hp=10;
     attack=30;
     defence=5;
-    this->p=p;
 }

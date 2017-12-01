@@ -9,6 +9,7 @@ class Player
 {
     public:
         //Player(int, int, int, Plansza*);
+        Player(Plansza*);
         void p_move();
         void battle(Monster*);
         void c_event(Event*);

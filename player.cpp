@@ -16,7 +16,11 @@
     position=1;
     this->p=p;
 }*/
-
+Player::Player(Plansza* p)
+{
+    position=1;
+    this->p=p;
+}
 void Player::battle(Monster *e)
 {
     int monsterHp = e->getHp();
