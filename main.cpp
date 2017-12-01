@@ -53,7 +53,7 @@ int main()
         player->p_move();
         system("pause");
         mapa.action(player);
-        //system("pause");
+        if(player->getHp()<0) break;
     }
     return 0;
 }

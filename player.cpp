@@ -27,23 +27,44 @@ void Player::battle(Monster *e)
     int monsterAtt = e->getAtt();
     int monsterDef = e->getDef();
     bool tour=rand()%2; //losowanie tury
+    system("cls");
+    if(tour) std::cout<<"Atakujesz jako pierwszy!"<<std::endl;
+    else std::cout<<"Przeciwnik atakuje jako pierwszy!"<<std::endl;
+    Sleep(1000);
     while(hp>0 && monsterHp>0)
     {
         int base=rand()%6+1; //rzut kostką
         if(tour)
         {
-            base+=attack-monsterAtt;
-            base=std::min(base,1);
+            system("cls");
+            std::cout<<"Twoja tura!"<<std::endl;
+            Sleep(500);
+            system("pause");
+            std::cout<<"Rzut kostka: "<<base<<std::endl;
+            base+=attack-monsterDef;
+            base=std::max(base,1);
             monsterHp-=base;
+            Sleep(500);
+            std::cout<<"Zadales "<<base<<" obrazen"<<std::endl;
+            Sleep(1000);
         }
         else
         {
+            system("cls");
+            std::cout<<"Tura przeciwnika!"<<std::endl;
+            Sleep(500);
+            std::cout<<"Rzut kostka: "<<base<<std::endl;
             base+=monsterAtt-defence;
-            base=std::min(base,1);
+            base=std::max(base,1);
             hp-=base;
+            std::cout<<"Przeciwnik zadal "<<base<<" obrazen"<<std::endl;
+            Sleep(1000);
         }
         tour=!tour;
     }
+    system("cls");
+    if(hp<=0) std::cout<<"Zginales!"<<std::endl;
+    else std::cout<<"Pokonales przeciwnika!"<<std::endl;
 }
 
 void Player::c_event(Event *e)
@@ -77,3 +98,19 @@ void Player::p_move()
     }
 
 }
+
+int Player::getHp()
+{
+    return hp;
+}
+
+int Player::getAtt()
+{
+    return attack;
+}
+
+int Player::getDef()
+{
+    return defence;
+}
+
