@@ -7,19 +7,22 @@ class Plansza;
 
 class Player
 {
-    public:
-        Player(int, int, int, Plansza*);
-        void p_move();
-        void battle(Monster*);
-        void c_event(Event*);
-        bool Koniec();
-        Plansza *p;
-
     private:
         int base_hp, base_attack, base_defence; //Bazowe statystyki
         int hp, attack, defence; //statystyki
         int position; //Pozycja gracza
         bool koniec=false;
+
+    public:
+        Player(int, int, int, Plansza*);
+        void p_move();
+        void battle(Monster*);
+        void c_event(Event*);
+        int getHp();
+        int getAtt();
+        int getDef();
+        bool Koniec();
+        Plansza *p;
 };
 
 #endif // PLAYER_H

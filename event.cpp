@@ -15,6 +15,9 @@ Event::Event(int x, int y, int ind)
     int id=rand()%Num_event;
     plot=Event_plots[id];
     m=Monster();
+    hp=rand()%2;
+    attack=rand()%2;
+    defence=rand()%2;
 }
 
 int Event::getHp()
@@ -57,4 +60,13 @@ void Event::wyswietl()
     std::cout<<"Punkty zycia: "<<m.getHp()<<std::endl;
     std::cout<<"Atak: "<<m.getAtt()<<std::endl;
     std::cout<<"Obrona: "<<m.getDef()<<std::endl;
+}
+
+void Event::wyswietl_bonusy()
+{
+    system("cls");
+    std::cout<<"Otrzymujesz nastepujace bonusy:"<<std::endl;
+    std::cout<<"Punkty zycia: "<<hp<<std::endl;
+    std::cout<<"Atak: "<<attack<<std::endl;
+    std::cout<<"Obrona: "<<defence<<std::endl;
 }

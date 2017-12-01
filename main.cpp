@@ -15,9 +15,6 @@ int main()
     main_init("Monsters.txt");
     Event_init("Events.txt");
     Plansza mapa;
-    Player p(1,1,1,&mapa);
-        std::cout<<"dziala";
-
     Player* player=&p;
     mapa.wyswietl();
     while(!player->Koniec())
@@ -29,6 +26,7 @@ int main()
         system("pause");
         mapa.action(player);
         system("pause");
+        if(player->getHp()<0) break;
     }
     return 0;
 }
