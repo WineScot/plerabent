@@ -3,17 +3,15 @@
 #include <ctime>
 #include <cstdlib>
 
-#include<windows.h>
-
 std::string Event::Event_plots[];
 
 int Event::Num_event;
 
 Event::Event(int x, int y, int ind)
 {
-    srand(ind);
     this->x=x;
     this->y=y;
+    srand(ind);
     int id=rand()%Num_event;
     plot=Event_plots[id];
     m=Monster();
@@ -22,7 +20,6 @@ Event::Event(int x, int y, int ind)
     defence=(rand()%8)+1;
 }
 
-//asdgas
 int Event::getHp()
 {
     return hp;
