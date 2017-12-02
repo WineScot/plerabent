@@ -23,5 +23,6 @@ void sleep(int);
 
 void main_init(std::string path);
 void Event_init(std::string path);
+void qte(); //quick time events
 
 #endif // FUNC

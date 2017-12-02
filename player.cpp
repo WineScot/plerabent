@@ -1,5 +1,6 @@
 #include "player.h"
 #include <cstdlib>
+#include <windows.h>
 #include "monster.h"
 #include "event.h"
 #include "plansza.h"
@@ -28,8 +29,8 @@ void Player::battle(Event* eve)
         int base=rand()%6+1; //rzut kostką
         if(tour)
         {
-            int w_attack=attack;
-            system("cls");
+            int w_attack = attack;
+            system(claer);
             std::cout<<"Twoja tura!"<<std::endl;
             sleep(500);
             WAIT;
@@ -114,6 +115,7 @@ void Player::p_move()
         p->addPos();
         sleep(500);
         system(clear);
+        if(!(rand()%5)) qte();
         p->wyswietl();
         if(p->Czy()==true)
         {
@@ -123,6 +125,11 @@ void Player::p_move()
         }
     }
 
+}
+
+void Player::odejmijhp(int val)
+{
+    hp-=val;
 }
 
 int Player::getHp()
@@ -139,3 +146,5 @@ int Player::getDef()
 {
     return defence;
 }
+
+

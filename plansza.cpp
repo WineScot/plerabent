@@ -77,7 +77,7 @@ Plansza::Plansza()
     {
         int a = path.top().first;
         int b = path.top().second;
-        pola[ path.size()-1 ] =new Event(a,b,(int)(path.size()-1));
+        pola[ path.size()-1 ] =new Event( a, b, (int)(path.size()-1) );
         mapa[a][b] = '#';
         path.pop();
     }
@@ -121,12 +121,4 @@ void Plansza::action(Player* player)
     pola[playerPos]->wyswietl();
     sleep(2000);
     player->battle(pola[playerPos]);
-}
-void Plansza::Test()
-{
-    for(int i=0;i<5;i++)
-    {
-        std::cout<<pola[i]->GetPlot()<<std::endl;
-    }
-    return;
 }
