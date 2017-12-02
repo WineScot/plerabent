@@ -2,31 +2,103 @@ Brutalny Janusz
 20
 15
 10
-A
+Iacobo Koguta
 1
 1
 1
-B
+Słanisław Słoń
 2
 2
 2
-C
+431-letnia tradycja
 3
 3
 3
-D
+Profesor Bolitył
 4
 4
 4
-E
+Pascal prawiana
 5
 5
 5
-F
+Rafał Schultz
 6
 6
 6
-G
+Lęczyna Bęcka
 7
 7
 7
+Stagnacy Zrzecki
+8
+8
+8
+Bajtek
+9
+9
+9
+Flaudia Lis
+10
+10
+10
+Jakub Królewicz
+11
+11
+11
+Chmura(środek transportu)
+12
+12
+12
+4 moduły z x
+13
+13
+13
+Nieskończoność+1
+14
+14
+14
+Funkcja Mobiusa
+15
+15
+15
+Ptak turysta sabotażysta
+16
+16
+16
+Puchuś Kubatek
+17
+17
+17
+Dziewczyna z Diversity
+18
+18
+18
+Klasa abstrakcyjna
+19
+19
+19
+Kanapka z masłem
+20
+20
+20
+Ładna, zielona trawa
+21
+21
+21
+Czasownik bez zu
+22
+22
+22
+Ogólnowszechświatowy konkurs logiczny KUL
+23
+23
+23
+Próg z OIa
+24
+24
+24
+OIOM
+25
+25
+25
