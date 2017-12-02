@@ -14,25 +14,37 @@ Player::Player(Plansza* p)
 }
 void Player::battle(Event* eve)
 {
+    srand(hp);
     int monsterHp = eve->getM()->getHp();
     int monsterAtt = eve->getM()->getAtt();
     int monsterDef = eve->getM()->getDef();
+    int c_damage=0;//otrzymane obrazenia (Druid)
     bool tour=rand()%2; //losowanie tury
-    system("cls");
+    system(clear);
     if(tour) std::cout<<"Atakujesz jako pierwszy!"<<std::endl;
     else std::cout<<"Przeciwnik atakuje jako pierwszy!"<<std::endl;
-    Sleep(1000);
+    sleep(1000);
     while(hp>0 && monsterHp>0)
     {
         int base=rand()%6+1; //rzut kostką
         if(tour)
         {
-            system("cls");
+            int w_attack;
+            system(claer);
             std::cout<<"Twoja tura!"<<std::endl;
-            Sleep(500);
-            system("pause");
+            sleep(500);
+            WAIT;
             std::cout<<"Rzut kostka: "<<base<<std::endl;
-            base+=attack-monsterDef;
+            if(critical>0)
+            {
+              int w_crit=rand()%100+1;
+              if(w_crit<=critical)
+              {
+                    w_attack*=2;
+                    std::cout<<"TRAFIENIE KRYTYCZNE!\n";
+              }
+            }
+            base+=w_attack-monsterDef;
             base=std::max(base,1);
             monsterHp-=base;
             Sleep(500);
