@@ -12,6 +12,7 @@ struct m
 class Monster
 {
 private:
+    static int los;
     int hp, attack, defence;
     std::string name;
     static int Num_monst;
