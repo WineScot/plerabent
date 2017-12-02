@@ -49,6 +49,7 @@ void Player::battle(Event* eve)
             monsterHp-=base;
             sleep(500);
             std::cout<<"Zadales "<<base<<" obrazen"<<std::endl;
+            c_damage+=base;
             sleep(1000);
         }
         else
