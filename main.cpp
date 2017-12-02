@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-#include <windows.h>
+
 #include "monster.h"
 #include "event.h"
 #include "player.h"

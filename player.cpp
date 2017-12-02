@@ -1,9 +1,9 @@
 #include "player.h"
 #include <cstdlib>
-#include <windows.h>
 #include "monster.h"
 #include "event.h"
 #include "plansza.h"
+#include "funkcje.h"
 
 Player::Player(int base_hp, int base_attack, int base_defence, Plansza* p)
 {
@@ -61,7 +61,7 @@ void Player::p_move()
     for(int i=0; i<mov; i++)
     {
         p->addPos();
-        Sleep(500);
+        sleep(500);
         system("cls");
         p->wyswietl();
         if(p->Czy()==true)
