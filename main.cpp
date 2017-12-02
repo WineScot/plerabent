@@ -62,7 +62,7 @@ int main()
     {
         system("cls");
         mapa.wyswietl();
-        Sleep(500);
+        sleep(500);
         player->p_move();
         system("pause");
         mapa.action(player);
