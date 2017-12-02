@@ -42,7 +42,7 @@ void Event_init(std::string path)
 
 void qte()
 {
-    std::cout<<"Pu³apka!!!\nNaciskaj szybko pokazywane klawisze!\n";
+    std::cout<<"PuÂ³apka!!!\nNaciskaj szybko pokazywane klawisze!\n";
     system(clear);
     int now=GetTickCount(); //obecny czas
     srand(now);
@@ -60,4 +60,9 @@ void qte()
     }
     if(letters>=0) std::cout<<"Zle!"<<std::endl;
     else std::cout<<"Ominieto pulapke!"<<std::endl;
+}
+
+void sleep( int i )
+{
+    usleep(1000*i);
 }
