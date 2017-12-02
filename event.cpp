@@ -20,6 +20,7 @@ Event::Event(int x, int y, int ind)
     defence=(rand()%8)+1;
 }
 
+//asdgas
 int Event::getHp()
 {
     return hp;

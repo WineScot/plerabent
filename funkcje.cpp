@@ -36,3 +36,8 @@ void Event_init(std::string path)
     }
     Event::Num_event=a;
 }
+
+void sleep( int i )
+{
+    usleep( i*1000 );
+}

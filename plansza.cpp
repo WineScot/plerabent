@@ -1,8 +1,8 @@
 #include <cstdlib>
 #include <stack>
 #include <ctime>
-#include <windows.h>
 #include "plansza.h"
+#include "funkcje.h"
 
 const int N = 20; // rozmiar mapy
 bool odw[N][N];
@@ -77,7 +77,7 @@ Plansza::Plansza()
     {
         int a = path.top().first;
         int b = path.top().second;
-        pola[ path.size()-1 ] =new Event( a, b, (int)(path.size()-1) );
+        pola[ path.size()-1 ] = new Event( a, b, (int)(path.size()-1) );
         mapa[a][b] = '#';
         path.pop();
     }
@@ -119,6 +119,6 @@ void Plansza::zmien()
 void Plansza::action(Player* player)
 {
     pola[playerPos]->wyswietl();
-    Sleep(2000);
+    sleep(2000);
     player->battle(pola[playerPos]);
 }

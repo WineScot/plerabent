@@ -1,9 +1,9 @@
 #include "player.h"
 #include <cstdlib>
-#include <windows.h>
 #include "monster.h"
 #include "event.h"
 #include "plansza.h"
+#include "funkcje.h"
 
 
 Player::Player(Plansza* p)
@@ -17,42 +17,42 @@ void Player::battle(Event* eve)
     int monsterAtt = eve->getM()->getAtt();
     int monsterDef = eve->getM()->getDef();
     bool tour=rand()%2; //losowanie tury
-    system("cls");
+    system(clear);
     if(tour) std::cout<<"Atakujesz jako pierwszy!"<<std::endl;
     else std::cout<<"Przeciwnik atakuje jako pierwszy!"<<std::endl;
-    Sleep(1000);
+    sleep(1000);
     while(hp>0 && monsterHp>0)
     {
         int base=rand()%6+1; //rzut kostką
         if(tour)
         {
-            system("cls");
+            system(clear);
             std::cout<<"Twoja tura!"<<std::endl;
-            Sleep(500);
-            system("pause");
+            sleep(500);
+            WAIT;
             std::cout<<"Rzut kostka: "<<base<<std::endl;
             base+=attack-monsterDef;
             base=std::max(base,1);
             monsterHp-=base;
-            Sleep(500);
+            sleep(500);
             std::cout<<"Zadales "<<base<<" obrazen"<<std::endl;
-            Sleep(1000);
+            sleep(1000);
         }
         else
         {
-            system("cls");
+            system(clear);
             std::cout<<"Tura przeciwnika!"<<std::endl;
-            Sleep(500);
+            sleep(500);
             std::cout<<"Rzut kostka: "<<base<<std::endl;
             base+=monsterAtt-defence;
             base=std::max(base,1);
             hp-=base;
             std::cout<<"Przeciwnik zadal "<<base<<" obrazen"<<std::endl;
-            Sleep(1000);
+            sleep(1000);
         }
         tour=!tour;
     }
-    system("cls");
+    system(clear);
     if(hp<=0) std::cout<<"Zginales!"<<std::endl;
     else
     {
@@ -80,8 +80,8 @@ void Player::p_move()
     for(int i=0; i<mov; i++)
     {
         p->addPos();
-        Sleep(500);
-        system("cls");
+        sleep(500);
+        system(clear);
         p->wyswietl();
         if(p->Czy()==true)
         {
@@ -107,4 +107,3 @@ int Player::getDef()
 {
     return defence;
 }
-
