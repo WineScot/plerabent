@@ -3,15 +3,17 @@
 #include <ctime>
 #include <cstdlib>
 
+#include<windows.h>
+
 std::string Event::Event_plots[];
 
 int Event::Num_event;
 
 Event::Event(int x, int y, int ind)
 {
+    srand(ind);
     this->x=x;
     this->y=y;
-    srand(time(0));
     int id=rand()%Num_event;
     plot=Event_plots[id];
     m=Monster();

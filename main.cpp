@@ -50,6 +50,7 @@ int main()
         system("cls");
         mapa.wyswietl();
         sleep(500);
+        system("pause");
         player->p_move();
         system("pause");
         if (!player->Koniec())

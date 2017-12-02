@@ -13,9 +13,11 @@ Player::Player(Plansza* p)
 }
 void Player::battle(Event* eve)
 {
+    srand(hp);
     int monsterHp = eve->getM()->getHp();
     int monsterAtt = eve->getM()->getAtt();
     int monsterDef = eve->getM()->getDef();
+    int c_damage=0;//otrzymane obrazenia (Druid)
     bool tour=rand()%2; //losowanie tury
     system("cls");
     if(tour) std::cout<<"Atakujesz jako pierwszy!"<<std::endl;
@@ -26,12 +28,22 @@ void Player::battle(Event* eve)
         int base=rand()%6+1; //rzut kostką
         if(tour)
         {
+            int w_attack=attack;
             system("cls");
             std::cout<<"Twoja tura!"<<std::endl;
             Sleep(500);
             system("pause");
             std::cout<<"Rzut kostka: "<<base<<std::endl;
-            base+=attack-monsterDef;
+            if(critical>0)
+            {
+              int w_crit=rand()%100+1;
+              if(w_crit<=critical)
+              {
+                    w_attack*=2;
+                    std::cout<<"TRAFIENIE KRYTYCZNE!\n";
+              }
+            }
+            base+=w_attack-monsterDef;
             base=std::max(base,1);
             monsterHp-=base;
             Sleep(500);
@@ -49,6 +61,7 @@ void Player::battle(Event* eve)
             hp-=base;
             std::cout<<"Przeciwnik zadal "<<base<<" obrazen"<<std::endl;
             Sleep(1000);
+            c_damage+=base;
         }
         tour=!tour;
     }
@@ -59,6 +72,22 @@ void Player::battle(Event* eve)
         std::cout<<"Pokonales przeciwnika!"<<std::endl;
         eve->wyswietl_bonusy();
         c_event(eve);
+        if(heal)
+        {
+            std::cout<<"Umiejetnosc druida";
+            for(int i=0;i<3;i++)
+            {
+                Sleep(1000);
+                std::cout<<".";
+            }
+            std::cout<<"\n";
+            int l_heal=rand()%100+1;
+            if(l_heal<30)
+            {
+                hp=hp+c_damage/2; //jest 43% szans na odnowienie 50% obrazen
+            }
+
+        }
     }
 }
 

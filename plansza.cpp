@@ -16,7 +16,7 @@ void generateMap( int x, int y )
 
     odw[x][y] = true;
     std::pair<int,int> edges[4] = { {-1,0}, {1,0}, {0,1}, {0,-1} };
-    // losowanie kolejności odwiedzanych wieżhołków
+    // losowanie kolejności odwiedzanych wierzchołków
     for(int i=0; i<8; i++)
     {
         int a = rand()%4;
@@ -77,7 +77,8 @@ Plansza::Plansza()
     {
         int a = path.top().first;
         int b = path.top().second;
-        pola[ path.size()-1 ] =new Event( a, b, (int)(path.size()-1) );
+        pola[ path.size()-1 ] =new Event(a,b,(int)(path.size()-1));
+        //std::cout<<pola[path.size()-1]->GetPlot()<<std::endl;
         mapa[a][b] = '#';
         path.pop();
     }
@@ -121,4 +122,12 @@ void Plansza::action(Player* player)
     pola[playerPos]->wyswietl();
     Sleep(2000);
     player->battle(pola[playerPos]);
+}
+void Plansza::Test()
+{
+    for(int i=0;i<5;i++)
+    {
+        std::cout<<pola[i]->GetPlot()<<std::endl;
+    }
+    return;
 }
