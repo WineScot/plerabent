@@ -85,7 +85,10 @@ void Player::battle(Event* eve)
             if(l_heal<30)
             {
                 hp=hp+c_damage/2; //jest 43% szans na odnowienie 50% obrazen
+                std::cout<<c_damage/2<<" zostało odnowione\n";
             }
+            else
+                std::cout<<"Uzycie umiejetnosci sie nie powiodlo :(\n";
 
         }
     }
