@@ -42,7 +42,8 @@ std::string Monster::getName()
 
 Monster::Monster()
 {
-    srand(time(0));
+    los++;
+    srand(los);
     int x=(rand()%Num_monst)+1;
     name=monsters[x].name;
     hp=monsters[x].hp;
