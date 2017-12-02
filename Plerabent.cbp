@@ -32,8 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="druid.cpp" />
+		<Unit filename="druid.h" />
 		<Unit filename="event.cpp" />
 		<Unit filename="event.h" />
+		<Unit filename="funkcje.cpp" />
+		<Unit filename="funkcje.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="monster.cpp" />
 		<Unit filename="monster.h" />
@@ -41,6 +45,10 @@
 		<Unit filename="plansza.h" />
 		<Unit filename="player.cpp" />
 		<Unit filename="player.h" />
+		<Unit filename="thief.cpp" />
+		<Unit filename="thief.h" />
+		<Unit filename="warrior.cpp" />
+		<Unit filename="warrior.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
