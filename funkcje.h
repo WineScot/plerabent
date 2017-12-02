@@ -1,3 +1,6 @@
+#ifndef FUNC
+#define FUNC
+
 #include <string>
 #include <fstream>
 #include "monster.h"
@@ -7,14 +10,18 @@
 #ifdef WIN32
 #include <windows.h>
 #define sleep Sleep
-#elif _POSIX_C_SOURCE >= 199309L
-#include <time.h>   // for nanosleep
-#define sleep nanosleep
+#define clear "cls"
+#define WAIT system("pause")
 #else
 #include <unistd.h> // for usleep
-#define sleep usleep
+#define clear "clear"
+#define WAIT getchar()
+//#define sleep usleep
+void sleep(int);
 #endif
 
 
 void main_init(std::string path);
 void Event_init(std::string path);
+
+#endif // FUNC
