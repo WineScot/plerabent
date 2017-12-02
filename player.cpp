@@ -72,6 +72,25 @@ void Player::battle(Event* eve)
         std::cout<<"Pokonales przeciwnika!"<<std::endl;
         eve->wyswietl_bonusy();
         c_event(eve);
+        if(heal)
+        {
+            std::cout<<"Umiejetnosc druida";
+            for(int i=0;i<3;i++)
+            {
+                Sleep(1000);
+                std::cout<<".";
+            }
+            std::cout<<"\n";
+            int l_heal=rand()%100+1;
+            if(l_heal<30)
+            {
+                hp=hp+c_damage/2; //jest 43% szans na odnowienie 50% obrazen
+                std::cout<<c_damage/2<<" zostało odnowione\n";
+            }
+            else
+                std::cout<<"Uzycie umiejetnosci sie nie powiodlo :(\n";
+
+        }
     }
 }
 
