@@ -11,11 +11,9 @@ class Player
          bool heal;
          bool dodge;
          bool koniec;
- 
         int critical;//szansa na trafienie krytyczne
         int hp, attack, defence; //statystyki
         int position; //Pozycja gracza
-        bool koniec=false;
     public:
         //Player(int, int, int, Plansza*);
         Player(Plansza*);

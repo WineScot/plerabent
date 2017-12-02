@@ -30,7 +30,7 @@ void Player::battle(Event* eve)
         if(tour)
         {
             int w_attack = attack;
-            system(claer);
+            system(clear);
             std::cout<<"Twoja tura!"<<std::endl;
             sleep(500);
             WAIT;

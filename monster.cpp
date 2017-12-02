@@ -8,6 +8,7 @@
 
 m Monster::monsters[];
 int Monster::Num_monst;
+int Monster::los;
 
 void Monster::test()
 {
