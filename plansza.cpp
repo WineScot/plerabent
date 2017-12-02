@@ -1,8 +1,8 @@
 #include <cstdlib>
 #include <stack>
 #include <ctime>
+#include <windows.h>
 #include "plansza.h"
-#include "funkcje.h"
 
 const int N = 20; // rozmiar mapy
 bool odw[N][N];
@@ -16,7 +16,7 @@ void generateMap( int x, int y )
 
     odw[x][y] = true;
     std::pair<int,int> edges[4] = { {-1,0}, {1,0}, {0,1}, {0,-1} };
-    // losowanie kolejności odwiedzanych wierzchołków
+    // losowanie kolejności odwiedzanych wieżhołków
     for(int i=0; i<8; i++)
     {
         int a = rand()%4;
@@ -77,7 +77,7 @@ Plansza::Plansza()
     {
         int a = path.top().first;
         int b = path.top().second;
-        pola[ path.size()-1 ] =new Event(a,b,(int)(path.size()-1));
+        pola[ path.size()-1 ] =new Event( a, b, (int)(path.size()-1) );
         mapa[a][b] = '#';
         path.pop();
     }
@@ -119,14 +119,6 @@ void Plansza::zmien()
 void Plansza::action(Player* player)
 {
     pola[playerPos]->wyswietl();
-    sleep(2000);
+    Sleep(2000);
     player->battle(pola[playerPos]);
-}
-void Plansza::Test()
-{
-    for(int i=0;i<5;i++)
-    {
-        std::cout<<pola[i]->GetPlot()<<std::endl;
-    }
-    return;
 }

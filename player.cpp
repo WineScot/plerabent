@@ -1,5 +1,6 @@
 #include "player.h"
 #include <cstdlib>
+#include <windows.h>
 #include "monster.h"
 #include "event.h"
 #include "plansza.h"
@@ -13,84 +14,52 @@ Player::Player(Plansza* p)
 }
 void Player::battle(Event* eve)
 {
-    srand(hp);
     int monsterHp = eve->getM()->getHp();
     int monsterAtt = eve->getM()->getAtt();
     int monsterDef = eve->getM()->getDef();
-    int c_damage=0;//otrzymane obrazenia (Druid)
     bool tour=rand()%2; //losowanie tury
-    system(clear);
+    system("cls");
     if(tour) std::cout<<"Atakujesz jako pierwszy!"<<std::endl;
     else std::cout<<"Przeciwnik atakuje jako pierwszy!"<<std::endl;
-    sleep(1000);
+    Sleep(1000);
     while(hp>0 && monsterHp>0)
     {
         int base=rand()%6+1; //rzut kostką
         if(tour)
         {
-            int w_attack=attack;
             system("cls");
             std::cout<<"Twoja tura!"<<std::endl;
-            sleep(500);
-            WAIT;
+            Sleep(500);
+            system("pause");
             std::cout<<"Rzut kostka: "<<base<<std::endl;
-            if(critical>0)
-            {
-              int w_crit=rand()%100+1;
-              if(w_crit<=critical)
-              {
-                    w_attack*=2;
-                    std::cout<<"TRAFIENIE KRYTYCZNE!\n";
-              }
-            }
-            base+=w_attack-monsterDef;
+            base+=attack-monsterDef;
             base=std::max(base,1);
             monsterHp-=base;
-            sleep(500);
+            Sleep(500);
             std::cout<<"Zadales "<<base<<" obrazen"<<std::endl;
-            sleep(1000);
+            Sleep(1000);
         }
         else
         {
-            system(clear);
+            system("cls");
             std::cout<<"Tura przeciwnika!"<<std::endl;
-            sleep(500);
+            Sleep(500);
             std::cout<<"Rzut kostka: "<<base<<std::endl;
             base+=monsterAtt-defence;
             base=std::max(base,1);
             hp-=base;
             std::cout<<"Przeciwnik zadal "<<base<<" obrazen"<<std::endl;
-            c_damage+=base;
-            sleep(1000);
+            Sleep(1000);
         }
         tour=!tour;
     }
-    system(clear);
+    system("cls");
     if(hp<=0) std::cout<<"Zginales!"<<std::endl;
     else
     {
         std::cout<<"Pokonales przeciwnika!"<<std::endl;
         eve->wyswietl_bonusy();
         c_event(eve);
-        if(heal)
-        {
-            std::cout<<"Umiejetnosc druida";
-            for(int i=0;i<3;i++)
-            {
-                Sleep(1000);
-                std::cout<<".";
-            }
-            std::cout<<"\n";
-            int l_heal=rand()%100+1;
-            if(l_heal<30)
-            {
-                hp=hp+c_damage/2; //jest 43% szans na odnowienie 50% obrazen
-                std::cout<<c_damage/2<<" zostało odnowione\n";
-            }
-            else
-                std::cout<<"Uzycie umiejetnosci sie nie powiodlo :(\n";
-
-        }
     }
 }
 
@@ -112,8 +81,9 @@ void Player::p_move()
     for(int i=0; i<mov; i++)
     {
         p->addPos();
-        sleep(500);
-        system(clear);
+        Sleep(500);
+        system("cls");
+        if(!(rand()%5)) qte();
         p->wyswietl();
         if(p->Czy()==true)
         {
@@ -123,6 +93,11 @@ void Player::p_move()
         }
     }
 
+}
+
+void Player::odejmijhp(int val)
+{
+    hp-=val;
 }
 
 int Player::getHp()
@@ -139,3 +114,5 @@ int Player::getDef()
 {
     return defence;
 }
+
+

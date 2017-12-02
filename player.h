@@ -8,18 +8,17 @@ class Plansza;
 class Player
 {
     protected:
-        bool heal;
-        bool dodge;
-        bool koniec;
-
-        int critical;//szansa na trafienie krytyczne
+        //int base_hp, base_attack, base_defence; //Bazowe statystyki
         int hp, attack, defence; //statystyki
         int position; //Pozycja gracza
+        bool koniec=false;
     public:
+        //Player(int, int, int, Plansza*);
         Player(Plansza*);
         void p_move();
         void battle(Event*);
         void c_event(Event*);
+        void odejmijhp(int);
         int getHp();
         int getAtt();
         int getDef();

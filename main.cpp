@@ -46,13 +46,12 @@ int main()
     }
     while(!player->Koniec())
     {
-        WAIT;
-        system(clear);
+        system("pause");
+        system("cls");
         mapa.wyswietl();
         sleep(500);
-        system("pause");
         player->p_move();
-        WAIT;
+        system("pause");
         if (!player->Koniec())
         mapa.action(player);
         if(player->getHp()<0) break;

@@ -5,6 +5,8 @@
 
 class Druid : public Player
 {
+    private:
+        int heal; //umiejetnosc druida do leczenia po walce
     public:
         Druid(Plansza *);
 

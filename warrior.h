@@ -6,6 +6,8 @@
 
 class Warrior : public Player
 {
+private:
+    int critical;//szansa na trafienie krytyczne
 public:
     Warrior(Plansza *);
 };

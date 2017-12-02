@@ -1,4 +1,7 @@
 #include "funkcje.h"
+#include <windows.h>
+#include <conio.h>
+#include <cstdlib>
 
 void main_init(std::string path)
 {
@@ -37,7 +40,24 @@ void Event_init(std::string path)
     Event::Num_event=a;
 }
 
-void sleep( int i )
+void qte()
 {
-    usleep( i*1000 );
+    std::cout<<"Pu³apka!!!\nNaciskaj szybko pokazywane klawisze!\n";
+    system(clear);
+    int now=GetTickCount(); //obecny czas
+    srand(now);
+    int letters=5;
+    while(letters--)
+    {
+        int now=GetTickCount(); //obecny czas
+        char sign=(char)(rand()%26+(int)'a');
+        std::cout<<sign<<std::endl;
+        if(getch()==sign)
+        {
+            if(GetTickCount()-now>=2000) break;
+        }
+        else break;
+    }
+    if(letters>=0) std::cout<<"Zle!"<<std::endl;
+    else std::cout<<"Ominieto pulapke!"<<std::endl;
 }
