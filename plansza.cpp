@@ -118,10 +118,7 @@ void Plansza::zmien()
 }
 void Plansza::action(Player* player)
 {
-    std::cout<<pola[playerPos]->GetPlot()<<"\n";
     pola[playerPos]->wyswietl();
     Sleep(2000);
-    player->battle(pola[playerPos]->getM());
-    pola[playerPos]->wyswietl_bonusy();
-
+    player->battle(pola[playerPos]);
 }

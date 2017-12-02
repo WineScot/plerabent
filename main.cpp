@@ -52,6 +52,7 @@ int main()
         sleep(500);
         player->p_move();
         system("pause");
+        if (!player->Koniec())
         mapa.action(player);
         if(player->getHp()<0) break;
     }

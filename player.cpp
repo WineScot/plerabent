@@ -5,27 +5,17 @@
 #include "event.h"
 #include "plansza.h"
 
-/*Player::Player(int base_hp, int base_attack, int base_defence, Plansza* p)
-{
-    base_hp=base_hp;
-    hp=base_hp;
-    base_attack=base_attack;
-    attack=base_attack;
-    base_defence=base_defence;
-    defence=base_defence;
-    position=1;
-    this->p=p;
-}*/
+
 Player::Player(Plansza* p)
 {
     position=1;
     this->p=p;
 }
-void Player::battle(Monster *e)
+void Player::battle(Event* eve)
 {
-    int monsterHp = e->getHp();
-    int monsterAtt = e->getAtt();
-    int monsterDef = e->getDef();
+    int monsterHp = eve->getM()->getHp();
+    int monsterAtt = eve->getM()->getAtt();
+    int monsterDef = eve->getM()->getDef();
     bool tour=rand()%2; //losowanie tury
     system("cls");
     if(tour) std::cout<<"Atakujesz jako pierwszy!"<<std::endl;
@@ -64,12 +54,16 @@ void Player::battle(Monster *e)
     }
     system("cls");
     if(hp<=0) std::cout<<"Zginales!"<<std::endl;
-    else std::cout<<"Pokonales przeciwnika!"<<std::endl;
+    else
+    {
+        std::cout<<"Pokonales przeciwnika!"<<std::endl;
+        eve->wyswietl_bonusy();
+        c_event(eve);
+    }
 }
 
 void Player::c_event(Event *e)
 {
-    battle(e->getM()); //walka z potworem
     hp+=e->getHp();
     attack+=e->getAtt();
     defence+=e->getDef();
@@ -80,7 +74,7 @@ bool Player::Koniec()
 }
 void Player::p_move()
 {
-    int mov=rand()%6+1;
+    int mov=rand()%12+1;
     std::cout<<"Ruch: "<<mov<<std::endl;
     position+=mov; //tymczasowe
     for(int i=0; i<mov; i++)

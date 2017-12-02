@@ -16,7 +16,7 @@ class Player
         //Player(int, int, int, Plansza*);
         Player(Plansza*);
         void p_move();
-        void battle(Monster*);
+        void battle(Event*);
         void c_event(Event*);
         int getHp();
         int getAtt();
