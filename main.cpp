@@ -3,70 +3,58 @@
 #include <string>
 #include <cstdlib>
 
+// headers
 #include "monster.h"
 #include "event.h"
 #include "player.h"
 #include "plansza.h"
-
-void main_init(std::string path)
-{
-    std::string s;
-    int a=0;
-    std::fstream plik( path.c_str(), std::ios::in );
-    while( getline( plik, s ) )
-    {
-        a++;
-        Monster::monsters[a].name=s;
-        getline( plik, s );
-        int b= atoi(s.c_str());
-        Monster::monsters[a].hp=b;
-        getline( plik, s );
-        b=atoi(s.c_str());
-        Monster::monsters[a].attack=b;
-        getline( plik, s );
-        b=atoi(s.c_str());
-        Monster::monsters[a].defence=b;
-    }
-    Monster::Num_monst=a;
-}
-
-void Event_init(std::string path)
-{
-    std::string s;
-    std::fstream plik( path.c_str(), std::ios::in );
-    std::string *tab=Event::Event_plots;
-    int a=0;
-    while( getline( plik, s ) )
-    {
-        a++;
-        *tab = s;
-        tab++;
-    }
-    Event::Num_event=a;
-}
-
-void init()
-{
-    main_init("Monsters.txt");
-    Event_init("Events.txt");
-}
+#include "funkcje.h"
+#include "warrior.h"
+#include "thief.h"
+#include "druid.h"
 
 int main()
 {
-    init();
+    main_init("Monsters.txt");
+    Event_init("Events.txt");
     Plansza mapa;
-    Player p(1,1,1,&mapa);
-    Player* player=&p;
-    mapa.wyswietl();
+    Player* player;
+    std::cout<<"Wybierz klase:\n 1.Wojownik\n 2.Druid\n 3.Zlodziej\n";
+    int liczba=0;
+    std::cin>>liczba;
+    switch(liczba)
+    {
+    case 1:
+        {
+            Warrior w_player(&mapa);
+            player=&w_player;
+            break;
+        }
+   case 2:
+       {
+            Druid d_player(&mapa);
+            player=&d_player;
+            break;
+       }
+    case 3:
+        {
+            Thief t_player(&mapa);
+            player=&t_player;
+            break;
+        }
+
+    }
     while(!player->Koniec())
     {
-        system("cls");
+        WAIT;
+        system(clear);
         mapa.wyswietl();
         sleep(500);
         player->p_move();
-        system("pause");
+        WAIT;
+        if (!player->Koniec())
         mapa.action(player);
-        system("pause");
+        if(player->getHp()<0) break;
     }
     return 0;
 }
