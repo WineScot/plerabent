@@ -251,6 +251,8 @@ void Player::showstats()
 void Player::odejmijhp(int val)
 {
     hp-=val;
+    if(hp<=0)
+    koniec=true;
 }
 
 void Player::addattack(int val)
