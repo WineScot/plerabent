@@ -72,8 +72,8 @@ void qte(Player* player)
         std::cout<<"Ominięto pułapkę!"<<std::endl;
         if(player->getDodge())
         {
-            player->addattack(1);
-            std::cout<<"Umiejętność złodzieja: atak zwiększony o 1!"<<std::endl;
+            player->addattack(3);
+ -          std::cout<<"Umiejętność złodzieja: atak zwiększony o 3!"<<std::endl;
         }
     }
     WAIT;
