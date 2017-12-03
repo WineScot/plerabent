@@ -17,7 +17,7 @@ Słanisław Słoń
 Profesor Bolitył
 20
 5
-25
+15
 Pascal prawiana
 10
 20
@@ -55,8 +55,8 @@ Chmura(środek transportu)
 25
 30
 Nieskończoność+1
+10
 30
-35
 40
 Funkcja Mobiusa
 20

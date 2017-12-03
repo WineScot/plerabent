@@ -9,6 +9,6 @@ Warrior::Warrior(Plansza* p)
     koniec=false;
     critical=20;
     hp=10;
-    attack=25;
+    attack=15;
     defence=5;
 }

@@ -4,7 +4,7 @@
 #include "plansza.h"
 #include "funkcje.h"
 
-const int N = 40, M=15; // rozmiar mapy
+const int N = 20, M = 10; // rozmiar mapy
 bool odw[N][M];
 std::stack < std::pair<int,int> > path;
 bool done;
