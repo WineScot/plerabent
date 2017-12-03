@@ -64,6 +64,7 @@ void Player::battle(Event* eve)
         {
             system(clear);
             showstats();
+            std::cout<<"\n";
             eve->getM()->showstats(monsterHp);
             std::cout<<"Tura przeciwnika!"<<std::endl;
             sleep(500);
@@ -73,7 +74,7 @@ void Player::battle(Event* eve)
             hp-=base;
             std::cout<<"Przeciwnik zadał "<<base<<" obrażeń"<<std::endl;
             c_damage+=base;
-            sleep(1000);
+            sleep(1500);
         }
         tour=!tour;
     }
@@ -102,7 +103,7 @@ void Player::battle(Event* eve)
             int l_heal=rand()%100+1;
             if(l_heal<30)
             {
-                hp=hp+c_damage/2; //jest 43% szans na odnowienie 50% obrazen
+                hp=hp+c_damage/2; //jest 30% szans na odnowienie 50% otrzymanych obrazen
                 std::cout<<c_damage/2<<" zostało odnowione\n";
             }
             else
