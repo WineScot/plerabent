@@ -23,7 +23,7 @@ void sleep(int);
 
 void main_init(std::string path);
 void Event_init(std::string path);
-void qte(); //quick time events
+void qte(Player*); //quick time events
 std::string PL(const char *);
 
 #endif // FUNC

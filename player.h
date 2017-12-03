@@ -21,9 +21,12 @@ class Player
         void battle(Event*);
         void c_event(Event*);
         void odejmijhp(int);
+        void addattack(int);
+        void showstats(); //pokazuje statystyki gracza
         int getHp();
         int getAtt();
         int getDef();
+        bool getDodge();
         bool Koniec();
         Plansza *p;
 };

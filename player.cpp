@@ -31,6 +31,8 @@ void Player::battle(Event* eve)
         {
             int w_attack = attack;
             system(clear);
+            showstats();
+            eve->getM()->showstats(monsterHp);
             std::cout<<"Twoja tura!"<<std::endl;
             sleep(500);
             WAIT;
@@ -54,6 +56,8 @@ void Player::battle(Event* eve)
         else
         {
             system(clear);
+            showstats();
+            eve->getM()->showstats(monsterHp);
             std::cout<<"Tura przeciwnika!"<<std::endl;
             sleep(500);
             std::cout<<"Rzut kostką: "<<base<<std::endl;
@@ -101,10 +105,12 @@ void Player::c_event(Event *e)
     attack+=e->getAtt();
     defence+=e->getDef();
 }
+
 bool Player::Koniec()
 {
     return koniec;
 }
+
 void Player::p_move()
 {
     int mov=rand()%12+1;
@@ -115,8 +121,9 @@ void Player::p_move()
         p->addPos();
         sleep(500);
         system(clear);
-        if(!(rand()%5)) qte();
+        if(!(rand()%5)) qte(this);
         p->wyswietl();
+        showstats();
         if(p->Czy()==true)
         {
             koniec=true;
@@ -127,9 +134,22 @@ void Player::p_move()
 
 }
 
+void Player::showstats()
+{
+    std::cout<<"Twoje statystyki:"<<std::endl;
+    std::cout<<"Punkty życia: "<<hp<<std::endl;
+    std::cout<<"Atak: "<<attack<<std::endl;
+    std::cout<<"Obrona: "<<defence<<std::endl;
+}
+
 void Player::odejmijhp(int val)
 {
     hp-=val;
+}
+
+void Player::addattack(int val)
+{
+    attack+=val;
 }
 
 int Player::getHp()
@@ -145,6 +165,11 @@ int Player::getAtt()
 int Player::getDef()
 {
     return defence;
+}
+
+bool Player::getDodge()
+{
+    return dodge;
 }
 
 

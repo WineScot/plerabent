@@ -20,6 +20,7 @@ private:
 
 public:
     friend void main_init(std::string);
+    void showstats(int); //pokazuje statystyki potwora
     std::string getName();
     int getHp();
     int getAtt();

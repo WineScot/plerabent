@@ -22,6 +22,14 @@ void Monster::test()
     }
 }
 
+void Monster::showstats(int hpbattle)
+{
+    std::cout<<"Statystyki przeciwnika:"<<std::endl;
+    std::cout<<"Punkty życia: "<<hpbattle<<std::endl;
+    std::cout<<"Atak: "<<attack<<std::endl;
+    std::cout<<"Obrona: "<<defence<<std::endl<<std::endl;
+}
+
 int Monster::getHp()
 {
     return hp;
