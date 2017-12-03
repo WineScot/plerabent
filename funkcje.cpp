@@ -61,7 +61,6 @@ void qte(Player* player)
         }
         else break;
     }
-
     if(letters>=0)
     {
         std::cout<<"Zle!"<<std::endl;
@@ -77,7 +76,6 @@ void qte(Player* player)
             std::cout<<"Umiejętność złodzieja: atak zwiększony o 3!"<<std::endl;
         }
     }
-
     sleep(2500);
     system(clear);
 }

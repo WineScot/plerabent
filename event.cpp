@@ -21,6 +21,11 @@ Event::Event(int x, int y, int ind)
     defence=(rand()%10)+1;
 }
 
+void Event::ustaw_potwora(Monster en)
+{
+    m=en;
+}
+
 int Event::getHp()
 {
     return hp;

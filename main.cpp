@@ -44,6 +44,7 @@ int main()
             break;
         }
     }
+    player->ustawimie();
     while(!player->Koniec())
     {
         WAIT;
