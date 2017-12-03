@@ -20,6 +20,7 @@ private:
 
 public:
     friend void main_init(std::string);
+    void Bardzo_Fajna_Funkcja_Do_Sprytnego_Balansowania_Atrybuow_Potwora_Aby_Rozgrywka_Byla_Wyrownana(int);
     std::string getName();
     int getHp();
     int getAtt();

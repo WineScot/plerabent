@@ -8,7 +8,7 @@ Druid::Druid(Plansza* p)
     dodge=false;
     koniec=false;
     critical=0;
-    hp=10;
+    hp=20;
     attack=10;
     defence=10;
 }

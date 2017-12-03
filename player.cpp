@@ -49,7 +49,7 @@ void Player::battle(Event* eve)
             monsterHp-=base;
             sleep(500);
             std::cout<<"Zadałeś "<<base<<" obrażeń"<<std::endl;
-            sleep(1000);
+            sleep(1500);
         }
         else
         {
@@ -62,12 +62,17 @@ void Player::battle(Event* eve)
             hp-=base;
             std::cout<<"Przeciwnik zadał "<<base<<" obrażeń"<<std::endl;
             c_damage+=base;
-            sleep(1000);
+            sleep(1500);
         }
         tour=!tour;
     }
     system(clear);
-    if(hp<=0) std::cout<<"Zginąłeś!"<<std::endl;
+    if(hp<=0)
+    {
+
+        std::cout<<"Zginąłeś!"<<std::endl;
+        koniec=true;
+    }
     else
     {
         std::cout<<"Pokonałeś przeciwnika!"<<std::endl;
@@ -78,14 +83,14 @@ void Player::battle(Event* eve)
             std::cout<<"Umiejętność druida";
             for(int i=0;i<3;i++)
             {
-                Sleep(1000);
+                sleep(1000);
                 std::cout<<".";
             }
             std::cout<<"\n";
             int l_heal=rand()%100+1;
             if(l_heal<30)
             {
-                hp=hp+c_damage/2; //jest 43% szans na odnowienie 50% obrazen
+                hp=hp+c_damage/2; //jest 30% szans na odnowienie 50% obrazen
                 std::cout<<c_damage/2<<" zostało odnowione\n";
             }
             else
@@ -130,6 +135,8 @@ void Player::p_move()
 void Player::odejmijhp(int val)
 {
     hp-=val;
+    if(hp<=0)
+        koniec=true;
 }
 
 int Player::getHp()

@@ -46,7 +46,7 @@ void Event_init(std::string path)
 void qte()
 {
     std::cout<<"Pułapka!!!\nNaciskaj szybko pokazywane klawisze!\n";
-    WAIT;
+    sleep(1500);
     int now=GetTickCount(); //obecny czas
     srand(now);
     int letters=5;
@@ -63,6 +63,8 @@ void qte()
     }
     if(letters>=0) std::cout<<"Źle!"<<std::endl;
     else std::cout<<"Ominięto pułapkę!"<<std::endl;
+    sleep(1500);
+    system(clear);
 }
 
 
