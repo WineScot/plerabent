@@ -1,4 +1,4 @@
-#include "druid.h"
+﻿#include "druid.h"
 
 
 Druid::Druid(Plansza* p)
