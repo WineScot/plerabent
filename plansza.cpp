@@ -4,14 +4,14 @@
 #include "plansza.h"
 #include "funkcje.h"
 
-const int N = 10; // rozmiar mapy
-bool odw[N][N];
+const int N = 40, M=15; // rozmiar mapy
+bool odw[N][M];
 std::stack < std::pair<int,int> > path;
 bool done;
 
 void generateMap( int x, int y )
 {
-    if(x == N-1 && y == N-1)
+    if(x == N-1 && y == M-1)
         done = true;
 
     odw[x][y] = true;
@@ -28,7 +28,7 @@ void generateMap( int x, int y )
     {
         int p = edges[i].first;
         int q = edges[i].second;
-        if( x+p < N && x+p > 0 && y+q < N && y+q > 0 && !odw[x+p][y+q] )
+        if( x+p < N && x+p > 0 && y+q < M && y+q > 0 && !odw[x+p][y+q] )
         {
             if(!done)
             path.push( std::make_pair( x+p, y+q ) );
@@ -66,7 +66,7 @@ Plansza::Plansza()
     path.push( std::make_pair(1,1) );
     playerPos=0;
     // mapa init
-    for(int i=0; i<N+1; i++)
+    for(int i=0; i<M+1; i++)
         for(int j=0; j<N+1; j++)
             mapa[j][i] = ' ';
 
@@ -87,7 +87,7 @@ Plansza::Plansza()
 
 void Plansza::wyswietl()
 {
-    for(int i=0; i<N+1; i++)
+    for(int i=0; i<M+1; i++)
     {
         for(int j=0; j<N+1; j++)
             std::cout<<mapa[j][i];
@@ -102,7 +102,7 @@ void Plansza::addPos()
     playerPos += 1;
 
     mapa[ pola[playerPos]->X() ][ pola[playerPos]->Y() ] = 'P';
-    if (pola[playerPos]->X()== N-1 && pola[playerPos]->Y() == N-1)
+    if (pola[playerPos]->X()== N-1 && pola[playerPos]->Y() == M-1)
     {
         czy=true;
         return;

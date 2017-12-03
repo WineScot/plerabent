@@ -20,7 +20,7 @@ int main()
     Event_init("Events.txt");
     Plansza mapa;
     Player* player;
-    std::cout<<"Wybierz klasę:\n 1.Wojownik\n 2.Druid\n 3.Zlodziej\n";
+    std::cout<<"Wybierz klasę:\n 1.Wojownik\n 2.Druid\n 3.Złodziej\n";
     int liczba=0;
     std::cin>>liczba;
     switch(liczba)
@@ -43,7 +43,6 @@ int main()
             player=&t_player;
             break;
         }
-
     }
     while(!player->Koniec())
     {

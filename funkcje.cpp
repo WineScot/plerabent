@@ -43,7 +43,7 @@ void Event_init(std::string path)
     Event::Num_event=a;
 }
 
-void qte()
+void qte(Player* player)
 {
     std::cout<<"Pułapka!!!\nNaciskaj szybko pokazywane klawisze!\n";
     sleep(1500);
@@ -61,8 +61,21 @@ void qte()
         }
         else break;
     }
-    if(letters>=0) std::cout<<"Źle!"<<std::endl;
-    else std::cout<<"Ominięto pułapkę!"<<std::endl;
+    if(letters>=0)
+    {
+        std::cout<<"Źle!"<<std::endl;
+        std::cout<<"Straciłeś 5 punktów życia!"<<std::endl;
+        player->odejmijhp(5);
+    }
+    else
+    {
+        std::cout<<"Ominięto pułapkę!"<<std::endl;
+        if(player->getDodge())
+        {
+            player->addattack(1);
+            std::cout<<"Umiejętność złodzieja: atak zwiększony o 1!"<<std::endl;
+        }
+    }
     sleep(1500);
     system(clear);
 }
