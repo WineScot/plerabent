@@ -21,7 +21,7 @@ private:
 public:
     friend void main_init(std::string);
     void showstats(int); //pokazuje statystyki potwora
-    void Bardzo_Fajna_Funkcja_Do_Sprytnego_Balansowania_Atrybuow_Potwora_Aby_Rozgrywka_Byla_Wyrownana(int);
+    void boss(int); //tworzy bossa
     std::string getName();
     int getHp();
     int getAtt();

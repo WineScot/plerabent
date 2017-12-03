@@ -18,6 +18,7 @@ public:
     friend void Event_init(std::string);
     void wyswietl();
     void wyswietl_bonusy();
+    void ustaw_potwora(Monster); //do walki z bossem
     Monster* getM();
     int getHp();
     int getAtt();

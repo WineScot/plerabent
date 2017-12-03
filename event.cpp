@@ -16,9 +16,14 @@ Event::Event(int x, int y, int ind)
     int id=rand()%Num_event;
     plot=Event_plots[id];
     m=Monster();
-    hp=(rand()%10)+1;
-    attack=(rand()%10)+1;
-    defence=(rand()%10)+1;
+    hp=(rand()%8)+1;
+    attack=(rand()%8)+1;
+    defence=(rand()%8)+1;
+}
+
+void Event::ustaw_potwora(Monster en)
+{
+    m=en;
 }
 
 int Event::getHp()
@@ -56,8 +61,8 @@ int Event::Y()
 
 void Event::wyswietl()
 {
-    std::cout<<plot<<std::endl;
-    std::cout<<"Przed tobą pojawia się: "<<m.getName()<<std::endl;
+    std::cout<<plot.c_str()<<std::endl;
+    std::cout<<"Przed tobą pojawia się: "<<m.getName().c_str()<<std::endl;
     std::cout<<"Punkty życia: "<<m.getHp()<<std::endl;
     std::cout<<"Atak: "<<m.getAtt()<<std::endl;
     std::cout<<"Obrona: "<<m.getDef()<<std::endl;

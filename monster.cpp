@@ -25,6 +25,7 @@ void Monster::test()
 void Monster::showstats(int hpbattle)
 {
     std::cout<<"Statystyki przeciwnika:"<<std::endl;
+    std::cout<<"Nazwa: "<<name<<std::endl;
     std::cout<<"Punkty życia: "<<hpbattle<<std::endl;
     std::cout<<"Atak: "<<attack<<std::endl;
     std::cout<<"Obrona: "<<defence<<std::endl<<std::endl;
@@ -50,13 +51,6 @@ std::string Monster::getName()
     return name;
 }
 
-void Monster::Bardzo_Fajna_Funkcja_Do_Sprytnego_Balansowania_Atrybuow_Potwora_Aby_Rozgrywka_Byla_Wyrownana(int pozycja_gracza)
-{
-    this->hp=std::max(15,hp*pozycja_gracza/15);
-    this->attack=std::max(15,attack*pozycja_gracza/15);
-    this->defence=std::max(15,defence*pozycja_gracza/15);
-}
-
 Monster::Monster()
 {
     los++;
@@ -66,4 +60,12 @@ Monster::Monster()
     hp=monsters[x].hp;
     attack=monsters[x].attack;
     defence=monsters[x].defence;
+}
+
+void Monster::boss(int player_points)
+{
+    hp=100-player_points;
+    attack=100-player_points;
+    defence=100-player_points;
+    name="Sir Kamiński";
 }
