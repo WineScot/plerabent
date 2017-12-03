@@ -50,7 +50,7 @@ int main()
         WAIT;
         system(clear);
         mapa.wyswietl();
-        sleep(500);
+        WAIT;
         player->p_move();
         WAIT;
         if (!player->Koniec())

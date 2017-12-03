@@ -30,6 +30,7 @@ class Player
         int getHp();
         int getAtt();
         int getDef();
+        int GetPos();
         bool getDodge();
         bool Koniec();
         Plansza *p;

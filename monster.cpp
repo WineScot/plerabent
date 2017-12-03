@@ -53,11 +53,11 @@ std::string Monster::getName()
 
 void Monster::Bardzo_Fajna_Funkcja_Do_Sprytnego_Balansowania_Atrybuow_Potwora_Aby_Rozgrywka_Byla_Wyrownana(int pozycja_gracza)
 {
-     this->hp=std::max(15,hp*pozycja_gracza/15);
-     this->attack=std::max(15,attack*pozycja_gracza/15);
-     this->defence=std::max(15,defence*pozycja_gracza/15);
+     this->hp=std::max(10,(int)((long double)hp*(long double)pozycja_gracza/15L));
+     this->attack=std::max(10,(int)((long double)attack*(long double)pozycja_gracza/15L));
+     this->defence=std::max(10,(int)((long double)defence*(long double)pozycja_gracza/15L));
 }
- 
+
 
 Monster::Monster()
 {
@@ -70,10 +70,11 @@ Monster::Monster()
     defence=monsters[x].defence;
 }
 
-void Monster::boss(int player_points)
+void Monster::boss(int player_points, Player* player)
 {
-    hp=100-player_points;
-    attack=100-player_points;
-    defence=100-player_points;
+    hp=50-player_points;
+    attack=50-player_points;
+    defence=50-player_points;
+    Bardzo_Fajna_Funkcja_Do_Sprytnego_Balansowania_Atrybuow_Potwora_Aby_Rozgrywka_Byla_Wyrownana(player->GetPos());
     name="Sir Kamiński";
 }

@@ -81,7 +81,7 @@ void Player::battle(Event* eve)
     system(clear);
     if(hp<=0)
     {
- 
+
          std::cout<<"Zginąłeś!"<<std::endl;
          koniec=true;
          return;
@@ -101,9 +101,9 @@ void Player::battle(Event* eve)
             }
             std::cout<<"\n";
             int l_heal=rand()%100+1;
-            if(l_heal<30)
+            if(l_heal<50)
             {
-                hp=hp+c_damage/2; //jest 30% szans na odnowienie 50% otrzymanych obrazen
+                hp=hp+c_damage/2; //jest 50% szans na odnowienie 50% otrzymanych obrazen
                 std::cout<<c_damage/2<<" zostało odnowione\n";
             }
             else
@@ -190,18 +190,21 @@ void Player::BossBattle()
     system(clear);
 
     Monster* Kamis = new Monster;
-    Kamis->boss(PP);
+    Kamis->boss(PP,this);
     Event* bossbattle = new Event(0,0,0);
     bossbattle->ustaw_potwora(*Kamis);
     battle(bossbattle);
-    std::cout<<"'Gratuluję! Jeszcze nikomu nie udało się mnie pokonać. No ale nad fizyką musisz jeszcze popracować...' - powiedział Sir Kamiński"<<std::endl;
-    std::cout<<"Widzisz jak wyciąga z kieszeni cukierka. Rzuca go w twoją stronę. Łapiesz go."<<std::endl;
-    std::cout<<"'Masz na zachętę. Możesz sobie postawić kropkę. Ale ponieważ nie znałeś treści drugiego prawa Maxwella, to kołeczek będzie.'"<<std::endl;
-    WAIT;
-    system(clear);
-    std::cout<<"Tak oto kończy się twoja przygoda... "<<std::endl;
-    showstats();
-    koniec=true;
+    if(!koniec)
+    {
+        std::cout<<"'Gratuluję! Jeszcze nikomu nie udało się mnie pokonać. No ale nad fizyką musisz jeszcze popracować...' - powiedział Sir Kamiński"<<std::endl;
+        std::cout<<"Widzisz jak wyciąga z kieszeni cukierka. Rzuca go w twoją stronę. Łapiesz go."<<std::endl;
+        std::cout<<"'Masz na zachętę. Możesz sobie postawić kropkę. Ale ponieważ nie znałeś treści drugiego prawa Maxwella, to kołeczek będzie.'"<<std::endl;
+        WAIT;
+        system(clear);
+        std::cout<<"Tak oto kończy się twoja przygoda... "<<std::endl;
+        showstats();
+        koniec=true;
+    }
 }
 
 void Player::c_event(Event *e)
@@ -218,11 +221,12 @@ bool Player::Koniec()
 
 void Player::p_move()
 {
-    int mov=rand()%12+1;
+    int mov=rand()%6+1;
     std::cout<<"Ruch: "<<mov<<std::endl;
     position+=mov; //tymczasowe
     for(int i=0; i<mov; i++)
     {
+        if(koniec) return;
         p->addPos();
         sleep(500);
         system(clear);
@@ -232,7 +236,7 @@ void Player::p_move()
         if(p->Czy()==true)
         {
             koniec=true;
-            std::cout<<"Gracz dotarł do mety\n";
+            BossBattle();
             break;
         }
     }
@@ -278,6 +282,11 @@ int Player::getDef()
 bool Player::getDodge()
 {
     return dodge;
+}
+
+int Player::GetPos()
+{
+    return position;
 }
 
 
