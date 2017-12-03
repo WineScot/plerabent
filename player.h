@@ -1,5 +1,6 @@
 ﻿#ifndef PLAYER_H
 #define PLAYER_H
+#include <string>
 
 class Monster;
 class Event;
@@ -14,11 +15,14 @@ class Player
         int critical;//szansa na trafienie krytyczne
         int hp, attack, defence; //statystyki
         int position; //Pozycja gracza
+        std::string name;
     public:
         //Player(int, int, int, Plansza*);
         Player(Plansza*);
+        void ustawimie(); // gracz podaje imię
         void p_move();
         void battle(Event*);
+        void BossBattle();
         void c_event(Event*);
         void odejmijhp(int);
         void addattack(int);
