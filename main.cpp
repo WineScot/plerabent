@@ -45,7 +45,6 @@ int main()
         }
     }
     player->ustawimie();
-    player->BossBattle();
     while(!player->Koniec())
     {
         WAIT;
@@ -56,7 +55,6 @@ int main()
         WAIT;
         if (!player->Koniec())
         mapa.action(player);
-        if(player->getHp()<0) break;
     }
     return 0;
 }
