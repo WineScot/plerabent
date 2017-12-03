@@ -73,10 +73,11 @@ void qte(Player* player)
         if(player->getDodge())
         {
             player->addattack(3);
- -          std::cout<<"Umiejętność złodzieja: atak zwiększony o 3!"<<std::endl;
+            std::cout<<"Umiejętność złodzieja: atak zwiększony o 3!"<<std::endl;
         }
     }
-    WAIT;
+    sleep(2500);
+    system(clear);
 }
 
 
