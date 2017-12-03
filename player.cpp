@@ -1,4 +1,4 @@
-#include "player.h"
+﻿#include "player.h"
 #include <cstdlib>
 #include <windows.h>
 #include "monster.h"
@@ -34,7 +34,7 @@ void Player::battle(Event* eve)
             std::cout<<"Twoja tura!"<<std::endl;
             sleep(500);
             WAIT;
-            std::cout<<"Rzut kostka: "<<base<<std::endl;
+            std::cout<<"Rzut kostką: "<<base<<std::endl;
             if(critical>0)
             {
               int w_crit=rand()%100+1;
@@ -48,48 +48,53 @@ void Player::battle(Event* eve)
             base=std::max(base,1);
             monsterHp-=base;
             sleep(500);
-            std::cout<<"Zadales "<<base<<" obrazen"<<std::endl;
-            sleep(1000);
+            std::cout<<"Zadałeś "<<base<<" obrażeń"<<std::endl;
+            sleep(1500);
         }
         else
         {
             system(clear);
             std::cout<<"Tura przeciwnika!"<<std::endl;
             sleep(500);
-            std::cout<<"Rzut kostka: "<<base<<std::endl;
+            std::cout<<"Rzut kostką: "<<base<<std::endl;
             base+=monsterAtt-defence;
             base=std::max(base,1);
             hp-=base;
-            std::cout<<"Przeciwnik zadal "<<base<<" obrazen"<<std::endl;
+            std::cout<<"Przeciwnik zadał "<<base<<" obrażeń"<<std::endl;
             c_damage+=base;
-            sleep(1000);
+            sleep(1500);
         }
         tour=!tour;
     }
     system(clear);
-    if(hp<=0) std::cout<<"Zginales!"<<std::endl;
+    if(hp<=0)
+    {
+
+        std::cout<<"Zginąłeś!"<<std::endl;
+        koniec=true;
+    }
     else
     {
-        std::cout<<"Pokonales przeciwnika!"<<std::endl;
+        std::cout<<"Pokonałeś przeciwnika!"<<std::endl;
         eve->wyswietl_bonusy();
         c_event(eve);
         if(heal)
         {
-            std::cout<<"Umiejetnosc druida";
+            std::cout<<"Umiejętność druida";
             for(int i=0;i<3;i++)
             {
-                Sleep(1000);
+                sleep(1000);
                 std::cout<<".";
             }
             std::cout<<"\n";
             int l_heal=rand()%100+1;
             if(l_heal<30)
             {
-                hp=hp+c_damage/2; //jest 43% szans na odnowienie 50% obrazen
+                hp=hp+c_damage/2; //jest 30% szans na odnowienie 50% obrazen
                 std::cout<<c_damage/2<<" zostało odnowione\n";
             }
             else
-                std::cout<<"Uzycie umiejetnosci sie nie powiodlo :(\n";
+                std::cout<<"Użycie umiejętności się nie powiodło :(\n";
 
         }
     }
@@ -120,7 +125,7 @@ void Player::p_move()
         if(p->Czy()==true)
         {
             koniec=true;
-            std::cout<<"Gracz dotarl do mety\n";
+            std::cout<<"Gracz dotarł do mety\n";
             break;
         }
     }
@@ -130,6 +135,8 @@ void Player::p_move()
 void Player::odejmijhp(int val)
 {
     hp-=val;
+    if(hp<=0)
+        koniec=true;
 }
 
 int Player::getHp()

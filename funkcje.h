@@ -1,4 +1,4 @@
-#ifndef FUNC
+﻿#ifndef FUNC
 #define FUNC
 
 #include <string>
@@ -24,5 +24,6 @@ void sleep(int);
 void main_init(std::string path);
 void Event_init(std::string path);
 void qte(); //quick time events
+std::string PL(const char *);
 
 #endif // FUNC

@@ -1,5 +1,4 @@
-#include <iostream>
-#include <fstream>
+﻿#include <iostream>
 #include <string>
 #include <cstdlib>
 
@@ -15,11 +14,13 @@
 
 int main()
 {
+    system("chcp 65001");
+    system(clear);
     main_init("Monsters.txt");
     Event_init("Events.txt");
     Plansza mapa;
     Player* player;
-    std::cout<<"Wybierz klase:\n 1.Wojownik\n 2.Druid\n 3.Zlodziej\n";
+    std::cout<<"Wybierz klasę:\n 1.Wojownik\n 2.Druid\n 3.Zlodziej\n";
     int liczba=0;
     std::cin>>liczba;
     switch(liczba)
@@ -54,7 +55,6 @@ int main()
         WAIT;
         if (!player->Koniec())
         mapa.action(player);
-        if(player->getHp()<0) break;
     }
     return 0;
 }
