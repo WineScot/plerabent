@@ -1,4 +1,4 @@
-#include <cstdlib>
+﻿#include <cstdlib>
 #include <stack>
 #include <ctime>
 #include "plansza.h"
@@ -119,6 +119,6 @@ void Plansza::zmien()
 void Plansza::action(Player* player)
 {
     pola[playerPos]->wyswietl();
-    sleep(2000);
+    WAIT;
     player->battle(pola[playerPos]);
 }

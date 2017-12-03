@@ -1,4 +1,4 @@
-#ifndef DRUID_H
+﻿#ifndef DRUID_H
 #define DRUID_H
 
 #include "player.h"

@@ -1,4 +1,4 @@
-#include "warrior.h"
+﻿#include "warrior.h"
 
 class Plansza;
 Warrior::Warrior(Plansza* p)

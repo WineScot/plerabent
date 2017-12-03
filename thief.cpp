@@ -1,4 +1,4 @@
-#include "thief.h"
+﻿#include "thief.h"
 
 Thief::Thief(Plansza* p)
     :Player(p)
