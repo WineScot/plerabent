@@ -30,7 +30,7 @@ void Player::battle(Event* eve)
     system(clear);
     if(tour) std::cout<<"Atakujesz jako pierwszy!"<<std::endl;
     else std::cout<<"Przeciwnik atakuje jako pierwszy!"<<std::endl;
-    sleep(1000);
+    sleep(2000);
     while(hp>0 && monsterHp>0)
     {
         int base=rand()%6+1; //rzut kostką
@@ -39,9 +39,9 @@ void Player::battle(Event* eve)
             int w_attack = attack;
             system(clear);
             showstats();
+            std::cout<<"\n";
             eve->getM()->showstats(monsterHp);
             std::cout<<"Twoja tura!"<<std::endl;
-            sleep(500);
             WAIT;
             std::cout<<"Rzut kostką: "<<base<<std::endl;
             if(critical>0)
@@ -58,7 +58,7 @@ void Player::battle(Event* eve)
             monsterHp-=base;
             sleep(500);
             std::cout<<"Zadałeś "<<base<<" obrażeń"<<std::endl;
-            sleep(1000);
+            sleep(1500);
         }
         else
         {
