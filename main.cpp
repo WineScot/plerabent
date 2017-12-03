@@ -54,7 +54,6 @@ int main()
         WAIT;
         if (!player->Koniec())
         mapa.action(player);
-        if(player->getHp()<0) break;
     }
     return 0;
 }

@@ -118,6 +118,7 @@ void Plansza::zmien()
 }
 void Plansza::action(Player* player)
 {
+    pola[playerPos]->getM()->Bardzo_Fajna_Funkcja_Do_Sprytnego_Balansowania_Atrybuow_Potwora_Aby_Rozgrywka_Byla_Wyrownana(playerPos);
     pola[playerPos]->wyswietl();
     WAIT;
     player->battle(pola[playerPos]);

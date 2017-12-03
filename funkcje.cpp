@@ -46,7 +46,7 @@ void Event_init(std::string path)
 void qte(Player* player)
 {
     std::cout<<"Pułapka!!!\nNaciskaj szybko pokazywane klawisze!\n";
-    WAIT;
+    sleep(1500);
     int now=GetTickCount(); //obecny czas
     srand(now);
     int letters=5;
@@ -76,7 +76,8 @@ void qte(Player* player)
             std::cout<<"Umiejętność złodzieja: atak zwiększony o 1!"<<std::endl;
         }
     }
-    WAIT;
+    sleep(1500);
+    system(clear);
 }
 
 
