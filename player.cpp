@@ -78,7 +78,13 @@ void Player::battle(Event* eve)
         tour=!tour;
     }
     system(clear);
-    if(hp<=0) std::cout<<"Zginąłeś!"<<std::endl;
+    if(hp<=0)
+    {
+ 
+         std::cout<<"Zginąłeś!"<<std::endl;
+         koniec=true;
+         return;
+    }
     else
     {
         std::cout<<"Pokonałeś przeciwnika!"<<std::endl;
