@@ -61,9 +61,10 @@ void qte(Player* player)
         }
         else break;
     }
+
     if(letters>=0)
     {
-        std::cout<<"Źle!"<<std::endl;
+        std::cout<<"Zle!"<<std::endl;
         std::cout<<"Straciłeś 5 punktów życia!"<<std::endl;
         player->odejmijhp(5);
     }
@@ -72,11 +73,12 @@ void qte(Player* player)
         std::cout<<"Ominięto pułapkę!"<<std::endl;
         if(player->getDodge())
         {
-            player->addattack(1);
-            std::cout<<"Umiejętność złodzieja: atak zwiększony o 1!"<<std::endl;
+            player->addattack(3);
+            std::cout<<"Umiejętność złodzieja: atak zwiększony o 3!"<<std::endl;
         }
     }
-    sleep(1500);
+
+    sleep(2500);
     system(clear);
 }
 

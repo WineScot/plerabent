@@ -52,9 +52,9 @@ std::string Monster::getName()
 
 void Monster::Bardzo_Fajna_Funkcja_Do_Sprytnego_Balansowania_Atrybuow_Potwora_Aby_Rozgrywka_Byla_Wyrownana(int pozycja_gracza)
 {
-    this->hp=hp*pozycja_gracza/15;
-    this->attack=attack*pozycja_gracza/15;
-    this->defence=defence*pozycja_gracza/15;
+    this->hp=std::max(15,hp*pozycja_gracza/15);
+    this->attack=std::max(15,attack*pozycja_gracza/15);
+    this->defence=std::max(15,defence*pozycja_gracza/15);
 }
 
 Monster::Monster()
