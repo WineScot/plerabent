@@ -13,7 +13,6 @@ Event::Event(int x, int y, int ind)
     int ind2=ind+1;
     this->x=x;
     this->y=y;
-    srand(ind);
     int id=rand()%Num_event;
     plot=Event_plots[id];
     m=Monster();
