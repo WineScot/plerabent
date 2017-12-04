@@ -10,15 +10,15 @@ int Event::Num_event;
 
 Event::Event(int x, int y, int ind)
 {
+    int ind2=ind+1;
     this->x=x;
     this->y=y;
-    srand(ind);
     int id=rand()%Num_event;
     plot=Event_plots[id];
     m=Monster();
-    hp=(rand()%10)+1;
-    attack=(rand()%10)+1;
-    defence=(rand()%10)+1;
+    hp=((rand()%ind2)+1)*2;
+    attack=((rand()%ind2)+1)*2;
+    defence=((rand()%ind2)+1);
 }
 
 void Event::ustaw_potwora(Monster en)
