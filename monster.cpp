@@ -72,9 +72,9 @@ Monster::Monster()
 
 void Monster::boss(int player_points, Player* player)
 {
-    hp=50-player_points;
-    attack=50-player_points;
-    defence=50-player_points;
+    hp=50-5*player_points;
+    attack=50-5*player_points;
+    defence=50-5*player_points;
     Bardzo_Fajna_Funkcja_Do_Sprytnego_Balansowania_Atrybuow_Potwora_Aby_Rozgrywka_Byla_Wyrownana(player->GetPos());
     name="Sir Kamiński";
 }
