@@ -1,6 +1,7 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <cstdlib>
+#include <time.h>
 
 // headers
 #include "monster.h"
@@ -14,6 +15,7 @@
 
 int main()
 {
+    srand(time(NULL));
     system("chcp 65001");
     system(clear);
     main_init("Monsters.txt");
