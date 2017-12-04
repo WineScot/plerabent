@@ -9,7 +9,6 @@
 
 m Monster::monsters[];
 int Monster::Num_monst;
-int Monster::los;
 
 void Monster::test()
 {
@@ -61,8 +60,6 @@ void Monster::Bardzo_Fajna_Funkcja_Do_Sprytnego_Balansowania_Atrybuow_Potwora_Ab
 
 Monster::Monster()
 {
-    los++;
-    srand(los);
     int x=(rand()%Num_monst)+1;
     name=monsters[x].name;
     hp=monsters[x].hp;
